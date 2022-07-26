@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer(props) {
+function ListingsContainer() {
+
   const [list, setList] = useState([]);
+
+  function handleDelete(){
+    setList(list.filter(lists => {
+      list.description !== 
+    }))
+  }
 
   useEffect(() => {
     fetch('http://localhost:6001/listings')
@@ -20,7 +27,8 @@ function ListingsContainer(props) {
             key= {lists.id}
             description = {lists.description}
             image = {lists.image}
-            location = {lists.location}/>
+            location = {lists.location}
+            handleDelete = {handleDelete} />
           )
         })}
 

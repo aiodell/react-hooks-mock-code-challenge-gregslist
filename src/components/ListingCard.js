@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function ListingCard({image, description, location}) {
+function ListingCard({image, description, location, handleDelete}) {
 
   const [favorite, setFavorite] = useState(false);
-  function handleClick(event) {
-    setFavorite()
+  function handleClick() {
+    setFavorite(!favorite)
   }
 
   return (
@@ -14,14 +14,14 @@ function ListingCard({image, description, location}) {
         <img src={image} alt={"description"} />
       </div>
       <div className="details" onClick = {handleClick}>
-        {true ? (
+        {favorite ? (
           <button className="emoji-button favorite active">★</button>
         ) : (
           <button className="emoji-button favorite" >☆</button>
         )}
         <strong>{description}</strong>
         <span> · {location}</span>
-        <button className="emoji-button delete">🗑</button>
+        <button className="emoji-button delete" onClick = {handleDelete}>🗑</button>
       </div>
     </li>
   );
