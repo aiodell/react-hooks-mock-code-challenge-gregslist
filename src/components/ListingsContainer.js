@@ -5,11 +5,9 @@ function ListingsContainer() {
 
   const [list, setList] = useState([]);
 
-  function handleDelete(){
-    setList(list.filter(lists => {
-      list.description !== 
-    }))
-  }
+  //  function handleDelete(){
+  //    setList(list.filter(lists => lists.description !== item))
+  //  }
 
   useEffect(() => {
     fetch('http://localhost:6001/listings')
@@ -27,8 +25,7 @@ function ListingsContainer() {
             key= {lists.id}
             description = {lists.description}
             image = {lists.image}
-            location = {lists.location}
-            handleDelete = {handleDelete} />
+            location = {lists.location} />
           )
         })}
 
